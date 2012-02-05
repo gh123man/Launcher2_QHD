@@ -146,12 +146,13 @@ public class AllApps3D extends RSSurfaceView
         public static final int COLUMNS_PER_PAGE_LANDSCAPE = 6;
         public static final int ROWS_PER_PAGE_LANDSCAPE = 3;
 
-        public static final int ICON_WIDTH_PX = 64;
-        public static final int ICON_TEXTURE_WIDTH_PX = 74;
+        public static final int ICON_WIDTH_PX = 72;
+	//icon width in drawer
+        public static final int ICON_TEXTURE_WIDTH_PX = 71;
         public static final int SELECTION_TEXTURE_WIDTH_PX = 74 + 20;
-
-        public static final int ICON_HEIGHT_PX = 64;
-        public static final int ICON_TEXTURE_HEIGHT_PX = 74;
+        public static final int ICON_HEIGHT_PX = 72;
+	//icon hight in drawer
+        public static final int ICON_TEXTURE_HEIGHT_PX = 71;
         public static final int SELECTION_TEXTURE_HEIGHT_PX = 74 + 20;
     }
 
@@ -278,11 +279,26 @@ public class AllApps3D extends RSSurfaceView
             sRS.mMessageCallback = mMessageProc = new AAMessage();
         }
 
+	//this is the magic seciton that controls the 3d size
+	/*
+	tf 0 = ?
+	tf 1 = ?
+	tf 2 = ?
+	tf 3 = ?
+	tf 4 = ?
+	tf 5 = ?
+	tf 6 = vertical streatch of main grid from the bottom
+	tf 7 = vertical streatch of main grid from the top
+	tf 8 = zoom level
+	tf 9 = ?
+	tf 10 = horizontal shift
+	tf 11 = vertical shift
+	*/
         if (sRollo.mUniformAlloc != null) {
             float tf[] = new float[] {72.f, 72.f,
                                       120.f, 120.f, 0.f, 0.f,
-                                      120.f, 680.f,
-                                      (2.f / 480.f), 0, -((float)w / 2) - 0.25f, -380.25f};
+                                      240.f, 740.f,
+                                      (2.f / 480.f), 0, -((float)w / 2) + 32.25f, -470.25f};
             if (w > h) {
                 tf[6] = 40.f;
                 tf[7] = h - 40.f;
@@ -293,6 +309,8 @@ public class AllApps3D extends RSSurfaceView
 
             sRollo.mUniformAlloc.data(tf);
         }
+	//end of magic section :)
+
 
         //long endTime = SystemClock.uptimeMillis();
         //Log.d(TAG, "surfaceChanged took " + (endTime-startTime) + "ms");
