@@ -148,11 +148,11 @@ public class AllApps3D extends RSSurfaceView
 
         public static final int ICON_WIDTH_PX = 72;
 	//icon width in drawer
-        public static final int ICON_TEXTURE_WIDTH_PX = 71;
+        public static final int ICON_TEXTURE_WIDTH_PX = 66;
         public static final int SELECTION_TEXTURE_WIDTH_PX = 74 + 20;
         public static final int ICON_HEIGHT_PX = 72;
 	//icon hight in drawer
-        public static final int ICON_TEXTURE_HEIGHT_PX = 71;
+        public static final int ICON_TEXTURE_HEIGHT_PX = 66;
         public static final int SELECTION_TEXTURE_HEIGHT_PX = 74 + 20;
     }
 
