@@ -558,7 +558,8 @@ public class AllApps3D extends RSSurfaceView
 
         int x = 0;
         // TODO: Put this in a config file/define
-        int columnWidth = 120;
+	//this 140 was a 120, it will chane the touch offset (left and right) of the whole screen :) perfect
+        int columnWidth = 140;
         for (int i = 0; i < mColumnsPerPage + 1; i++) {
             mTouchXBorders[i] = x - viewPos[0];
             x += columnWidth;
